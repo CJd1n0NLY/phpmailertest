@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+// tapos itong buong if block, ikaw na bahala kung saan mo iredirect kapag minanual lipat yung url sa index.php mareredirect siya
+// sa otp-verify or login 
+if (!isset($_SESSION["user_id"]) || !isset($_SESSION["otp_verified"]) || $_SESSION["otp_verified"] !== true) {
+    header("Location: otp-verify.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

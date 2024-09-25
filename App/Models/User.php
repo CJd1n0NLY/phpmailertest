@@ -12,7 +12,7 @@ class User {
     }
 
     public function create($name, $email, $password) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $activation_hash = bin2hex(random_bytes(16)); // More secure activation hash
 
         $sql = "INSERT INTO user (name, email, password_hash, account_activation_hash) VALUES (?, ?, ?, ?)";

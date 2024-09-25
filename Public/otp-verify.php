@@ -5,7 +5,7 @@ $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($_POST["otp"] == $_SESSION["otp"]) {
-        // OTP is correct, log the user in
+        $_SESSION["otp_verified"] = true; // ito dagdag mo kael 
         header("Location: index.php");
         exit;
     } else {
